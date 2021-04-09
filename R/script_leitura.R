@@ -42,5 +42,5 @@ dados_peixes %>% view()
 # Visualizando, no console, a variável "familia"
 dados_peixes$familia
 
-# Excrevendo um dadaset em ".csv" ---------------------------------------------
+# Escrevendo um dadaset em ".csv" ---------------------------------------------
 write_csv(dados_peixes, "dados/brutos/peixes_rio_madeira.csv")
