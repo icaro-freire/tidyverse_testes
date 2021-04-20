@@ -160,3 +160,25 @@ dados_mpg %>%
   summarise(media_cidade = mean(cidade)) %>%
   arrange(desc(media_cidade)) %>%
   top_n(5)
+
+# Quarteto de Anscombe --------------------------------------------------------
+## Lendo o conjunto de dados
+dados_enganosos <- read_csv("dados/tidy/quarteto_de_anscombe.csv")
+
+## Visualizando a tabela
+dados_enganosos %>% view()
+
+## Frequência absoluta de cada grupo
+dados_enganosos %>%
+  count(dados)
+
+## Sumarizando o dataset
+dados_enganosos %>%
+  group_by(dados) %>%
+  summarise(
+    media_x = mean(x),
+    media_y = mean(y),
+    dp_x    = sd(x),
+    dp_y    = sd(y),
+    r       = round(cor(x, y), 2)
+  )
